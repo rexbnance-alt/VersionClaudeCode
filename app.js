@@ -2516,7 +2516,7 @@ function renderDbList() {
         '<div style="font-weight:600;color:var(--text)">' + escapeHtml(db.name) + '</div>' +
         '<div style="font-size:11.5px;color:var(--muted);margin-top:2px">' + escapeHtml(db.type || 'Database') + '</div>' +
       '</td>' +
-      '<td><span class="db-env-badge db-env-' + escapeHtml(db.env || 'uat') + '">' + escapeHtml(db.env || 'uat') + '</span></td>' +
+      '<td><span class="db-env-badge db-env-' + escapeHtml(db.env || 'uat') + '" style="font-family:Courier New,monospace;font-size:12px;font-weight:500;background:none;border:none;padding:0;color:var(--text)">' + escapeHtml(db.host || '—') + '</span></td>' +
       '<td onclick="event.stopPropagation()">' +
         '<div style="display:flex;align-items:center;gap:6px">' +
           '<span class="db-field-pass" id="dbPass-' + realIdx + '" style="font-family:Courier New,monospace;font-size:12.5px;letter-spacing:1.5px">' + maskedPass + '</span>' +
