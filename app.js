@@ -1898,11 +1898,14 @@ function renderTeamCard() {
 function renderDashboardKb() {
   var list = document.getElementById('dashboardKbList');
   var sub = document.getElementById('dashboardKbSub');
+  var actionBtn = document.getElementById('dashboardKbAction');
   if (!list) return;
 
   var total = scriptApps.length;
 
-  if (sub) sub.textContent = total === 0 ? 'No applications yet' : total + ' application' + (total !== 1 ? 's' : '') + ' total';
+  if (sub) sub.textContent = total === 0 ? 'No applications yet' : ((dashboardExpandedCard === 'kb') ? 'All applications · ' + total + ' total' : total + ' application' + (total !== 1 ? 's' : '') + ' total');
+
+  if (actionBtn) actionBtn.innerHTML = (dashboardExpandedCard === 'kb') ? 'Show less ↑' : 'View all ↗';
 
   if (total === 0) {
     list.innerHTML = '<div style="padding:24px 16px;text-align:center;color:var(--muted);font-size:13px">No scripts yet. <a style="color:var(--purple);cursor:pointer;font-weight:600" onclick="navigateToScriptHub()">Open Scripts</a></div>';
@@ -1919,7 +1922,7 @@ function renderDashboardKb() {
     ['#FFE4E6','#BE123C']
   ];
 
-  var displayApps = scriptApps.slice(0, 5);
+  var displayApps = (dashboardExpandedCard === 'kb') ? scriptApps : scriptApps.slice(0, 5);
   var html = '';
   for (var k = 0; k < displayApps.length; k++) {
     var app = displayApps[k];
@@ -1935,8 +1938,13 @@ function renderDashboardKb() {
     '</div>';
   }
   list.innerHTML = html;
-  list.style.maxHeight = '';
-  list.style.overflowY = '';
+  if (dashboardExpandedCard === 'kb') {
+    list.style.maxHeight = '560px';
+    list.style.overflowY = 'auto';
+  } else {
+    list.style.maxHeight = '';
+    list.style.overflowY = '';
+  }
 }
 
 function renderDashboardScripts() {
