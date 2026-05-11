@@ -1112,16 +1112,12 @@ function renderScriptItemView() {
   for (var c = 0; c < comments.length; c++) {
     var cm = comments[c];
     commentsHtml +=
-      '<div style="display:flex;gap:10px;padding:12px 0;border-top:1px solid var(--border)">' +
-        '<div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--blue));display:flex;align-items:center;justify-content:center;color:white;font-size:11px;font-weight:700;flex-shrink:0">' + escapeHtml((cm.author || 'A').slice(0,2).toUpperCase()) + '</div>' +
+      '<div class="turnover-remark">' +
         '<div style="flex:1;min-width:0">' +
-          '<div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">' +
-            '<div style="font-size:13px;font-weight:600;color:var(--text)">' + escapeHtml(cm.author || 'Admin') + '</div>' +
-            '<div style="font-size:11px;color:var(--faint)">' + relTime(cm.date) + '</div>' +
-          '</div>' +
-          '<div style="font-size:13px;color:var(--text);margin-top:3px;line-height:1.5;white-space:pre-wrap">' + escapeHtml(cm.text) + '</div>' +
+          '<div style="font-size:11px;color:var(--faint)">' + escapeHtml(formatTurnoverDateTime(cm.date)) + '</div>' +
+          '<div style="font-size:12.5px;color:var(--text);margin-top:2px;line-height:1.5;white-space:pre-wrap">' + escapeHtml(cm.text) + '</div>' +
         '</div>' +
-        '<button class="db-icon-btn" onclick="deleteScriptComment(' + c + ')" title="Delete comment" style="color:var(--red);width:24px;height:24px;font-size:11px">🗑</button>' +
+        '<button class="db-icon-btn" onclick="deleteScriptComment(' + c + ')" title="Delete" style="color:var(--red);width:22px;height:22px;font-size:11px;flex-shrink:0">🗑</button>' +
       '</div>';
   }
 
@@ -1150,8 +1146,8 @@ function renderScriptItemView() {
         '<div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px">Comments (' + comments.length + ')</div>' +
         commentsHtml +
         '<div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap">' +
-          '<input id="scriptCommentInput" class="form-input" type="text" placeholder="Add a comment as Admin..." style="flex:1;min-width:200px" onkeydown="if(event.key===\'Enter\')addScriptComment()">' +
-          '<button class="new-btn" onclick="addScriptComment()" style="padding:9px 16px;font-size:12.5px">Post</button>' +
+          '<input id="scriptCommentInput" class="form-input" type="text" placeholder="Add a comment..." style="flex:1;min-width:200px" onkeydown="if(event.key===\'Enter\')addScriptComment()">' +
+          '<button class="new-btn" onclick="addScriptComment()" style="padding:9px 16px;font-size:12.5px">+ Add Remark</button>' +
         '</div>' +
       '</div>' +
     '</div>';
@@ -1274,16 +1270,12 @@ function renderKbItemView() {
   for (var c = 0; c < comments.length; c++) {
     var cm = comments[c];
     commentsHtml +=
-      '<div style="display:flex;gap:10px;padding:12px 0;border-top:1px solid var(--border)">' +
-        '<div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--blue));display:flex;align-items:center;justify-content:center;color:white;font-size:11px;font-weight:700;flex-shrink:0">' + escapeHtml((cm.author || 'A').slice(0,2).toUpperCase()) + '</div>' +
+      '<div class="turnover-remark">' +
         '<div style="flex:1;min-width:0">' +
-          '<div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">' +
-            '<div style="font-size:13px;font-weight:600;color:var(--text)">' + escapeHtml(cm.author || 'Admin') + '</div>' +
-            '<div style="font-size:11px;color:var(--faint)">' + relTime(cm.date) + '</div>' +
-          '</div>' +
-          '<div style="font-size:13px;color:var(--text);margin-top:3px;line-height:1.5;white-space:pre-wrap">' + escapeHtml(cm.text) + '</div>' +
+          '<div style="font-size:11px;color:var(--faint)">' + escapeHtml(formatTurnoverDateTime(cm.date)) + '</div>' +
+          '<div style="font-size:12.5px;color:var(--text);margin-top:2px;line-height:1.5;white-space:pre-wrap">' + escapeHtml(cm.text) + '</div>' +
         '</div>' +
-        '<button class="db-icon-btn" onclick="deleteComment(' + iIdx + ',' + c + ')" title="Delete comment" style="color:var(--red);width:24px;height:24px;font-size:11px">🗑</button>' +
+        '<button class="db-icon-btn" onclick="deleteComment(' + iIdx + ',' + c + ')" title="Delete" style="color:var(--red);width:22px;height:22px;font-size:11px;flex-shrink:0">🗑</button>' +
       '</div>';
   }
 
@@ -1312,8 +1304,8 @@ function renderKbItemView() {
         '<div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px">Comments (' + comments.length + ')</div>' +
         commentsHtml +
         '<div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap">' +
-          '<input id="kbCommentInput" class="form-input" type="text" placeholder="Add a comment as Admin..." style="flex:1;min-width:200px" onkeydown="if(event.key===\'Enter\')addComment(' + iIdx + ')">' +
-          '<button class="new-btn" onclick="addComment(' + iIdx + ')" style="padding:9px 16px;font-size:12.5px">Post</button>' +
+          '<input id="kbCommentInput" class="form-input" type="text" placeholder="Add a comment..." style="flex:1;min-width:200px" onkeydown="if(event.key===\'Enter\')addComment(' + iIdx + ')">' +
+          '<button class="new-btn" onclick="addComment(' + iIdx + ')" style="padding:9px 16px;font-size:12.5px">+ Add Remark</button>' +
         '</div>' +
       '</div>' +
     '</div>';
