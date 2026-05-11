@@ -693,8 +693,8 @@ function buildTurnoverInlineExtras(t) {
     (remarks.length > 0 ? '<div class="turnover-remarks-list">' + remarksHtml + '</div>' : '') +
     '<div class="turnover-add-remark">' +
       '<textarea id="newRemarkInput" class="form-input" placeholder="Add a comment..." onclick="event.stopPropagation()" style="width:100%;min-height:52px;font-family:inherit;font-size:12.5px;box-sizing:border-box"></textarea>' +
-      '<div style="display:flex;justify-content:flex-end;margin-top:8px">' +
-        '<button class="new-btn" onclick="event.stopPropagation();addTurnoverRemark(\'' + escapeJs(t.id) + '\')" style="padding:8px 14px;font-size:12px">+ Add Remark</button>' +
+      '<div style="display:flex;justify-content:flex-end;margin-top:6px">' +
+        '<button class="new-btn" onclick="event.stopPropagation();addTurnoverRemark(\'' + escapeJs(t.id) + '\')" style="padding:5px 12px;font-size:11.5px">Post</button>' +
       '</div>' +
     '</div>' +
   '</div>';
@@ -1145,9 +1145,11 @@ function renderScriptItemView() {
       '<div style="margin-top:24px;border-top:1px solid var(--border);padding-top:18px">' +
         '<div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px">Comments (' + comments.length + ')</div>' +
         commentsHtml +
-        '<div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap">' +
-          '<input id="scriptCommentInput" class="form-input" type="text" placeholder="Add a comment..." style="flex:1;min-width:200px" onkeydown="if(event.key===\'Enter\')addScriptComment()">' +
-          '<button class="new-btn" onclick="addScriptComment()" style="padding:9px 16px;font-size:12.5px">+ Add Remark</button>' +
+        '<div style="display:flex;flex-direction:column;gap:6px;margin-top:14px">' +
+          '<input id="scriptCommentInput" class="form-input" type="text" placeholder="Add a comment..." style="width:100%" onkeydown="if(event.key===\'Enter\')addScriptComment()">' +
+          '<div style="display:flex;justify-content:flex-end">' +
+            '<button class="new-btn" onclick="addScriptComment()" style="padding:5px 12px;font-size:11.5px">Post</button>' +
+          '</div>' +
         '</div>' +
       '</div>' +
     '</div>';
@@ -1303,9 +1305,11 @@ function renderKbItemView() {
       '<div style="margin-top:24px;border-top:1px solid var(--border);padding-top:18px">' +
         '<div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px">Comments (' + comments.length + ')</div>' +
         commentsHtml +
-        '<div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap">' +
-          '<input id="kbCommentInput" class="form-input" type="text" placeholder="Add a comment..." style="flex:1;min-width:200px" onkeydown="if(event.key===\'Enter\')addComment(' + iIdx + ')">' +
-          '<button class="new-btn" onclick="addComment(' + iIdx + ')" style="padding:9px 16px;font-size:12.5px">+ Add Remark</button>' +
+        '<div style="display:flex;flex-direction:column;gap:6px;margin-top:14px">' +
+          '<input id="kbCommentInput" class="form-input" type="text" placeholder="Add a comment..." style="width:100%" onkeydown="if(event.key===\'Enter\')addComment(' + iIdx + ')">' +
+          '<div style="display:flex;justify-content:flex-end">' +
+            '<button class="new-btn" onclick="addComment(' + iIdx + ')" style="padding:5px 12px;font-size:11.5px">Post</button>' +
+          '</div>' +
         '</div>' +
       '</div>' +
     '</div>';
