@@ -222,20 +222,20 @@
       </div>
 
       <div style="display:flex;flex-direction:column;gap:20px">
-        <div class="card" id="sprintCard">
-          <div class="card-header">
-            <div><div class="card-title">Current Sprint</div><div class="card-sub">3 days remaining — May 11</div></div>
-            <div class="card-action" id="sprintAction" onclick="toggleDashboardCard('sprint')">View board ↗</div>
-          </div>
-          <div id="sprintBody"></div>
-        </div>
-
         <div class="card" id="dashboardKbCard">
           <div class="card-header">
             <div><div class="card-title">Scripts</div><div class="card-sub" id="dashboardKbSub">Recent applications</div></div>
             <div class="card-action" id="dashboardKbAction" onclick="toggleDashboardCard('kb')">View all ↗</div>
           </div>
           <div class="kb-list" id="dashboardKbList"></div>
+        </div>
+
+        <div class="card" id="sprintCard">
+          <div class="card-header">
+            <div><div class="card-title">Current Sprint</div><div class="card-sub">3 days remaining — May 11</div></div>
+            <div class="card-action" id="sprintAction" onclick="toggleDashboardCard('sprint')">View board ↗</div>
+          </div>
+          <div id="sprintBody"></div>
         </div>
 
         <div class="card" id="teamActivityCard">
